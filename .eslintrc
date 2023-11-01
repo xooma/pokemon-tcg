@@ -1,0 +1,17 @@
+{
+  "parser": "@angular-eslint/template-parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@angular-eslint/recommended",
+    "plugin:@angular-eslint/template/process-inline-templates"
+  ],
+  "rules": {
+    "@angular-eslint/component-class-suffix": [
+      2,
+      {
+        "suffixes": ["Page", "Component"]
+      }
+    ]
+  }
+}

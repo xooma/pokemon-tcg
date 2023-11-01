@@ -2,6 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+  "cli": {
+    "schematicCollections": ["@angular-eslint/schematics"]
+  },
   "projects": {
     "pokemon-tcg": {
       "projectType": "application",
@@ -22,7 +25,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "outputPath": "dist/pokemon-tcg",
             "index": "src/index.html",
@@ -33,7 +36,7 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
@@ -96,13 +99,46 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/favicon.ico",
-              "src/assets"
+              "src/favicon.png",
+             "src/assets"
             ],
             "styles": [
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "explore": {
+      "projectType": "library",
+      "root": "projects/explore",
+      "sourceRoot": "projects/explore/src",
+      "prefix": "pkmn",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/explore/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/explore/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/explore/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/explore/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
