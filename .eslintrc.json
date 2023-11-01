@@ -1,7 +1,7 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "@angular-eslint"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
@@ -9,6 +9,7 @@
         "@nx/enforce-module-boundaries": [
           "error",
           {
+            "allowCircularSelfDependency": true,
             "enforceBuildableLibDependency": true,
             "allow": [],
             "depConstraints": [
@@ -24,7 +25,14 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nx/typescript"],
-      "rules": {}
+      "rules": {
+        "@angular-eslint/component-class-suffix": [
+          2,
+          {
+            "suffixes": ["Page", "Component"]
+          }
+        ]
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

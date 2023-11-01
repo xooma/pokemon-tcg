@@ -15,7 +15,7 @@
         "main": "apps/ng-pkmn/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/ng-pkmn/tsconfig.app.json",
-        "assets": ["apps/ng-pkmn/src/favicon.ico", "apps/ng-pkmn/src/assets"],
+        "assets": ["apps/ng-pkmn/src/favicon.png", "apps/ng-pkmn/src/assets"],
         "styles": ["apps/ng-pkmn/src/styles.scss"],
         "scripts": []
       },
@@ -56,7 +56,10 @@
           "browserTarget": "ng-pkmn:build:development"
         }
       },
-      "defaultConfiguration": "development"
+      "defaultConfiguration": "development",
+      "options": {
+        "proxyConfig": "apps/ng-pkmn/proxy.conf.json"
+      }
     },
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
