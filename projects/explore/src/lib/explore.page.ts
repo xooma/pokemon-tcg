@@ -7,10 +7,13 @@ import { BackgroundComponent, SearchComponent } from './components';
   selector: 'pkm-explore',
   standalone: true,
   imports: [CommonModule, BackgroundComponent, SearchComponent],
-  template: `<ng-container>
-    <pkmn-explore-background />
-    <pkmn-explore-search />
-  </ng-container> `,
+  template: `
+    <div class="hero">
+      <pkmn-explore-background />
+      <h1>Recherche des cartes</h1>
+      <pkmn-explore-search />
+    </div>
+  `,
   styles: [],
 })
 export class ExplorePage {}

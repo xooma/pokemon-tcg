@@ -15,6 +15,15 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [
     `
+      .background-video:before {
+        background: radial-gradient(circle, rgba(49,51,143,0) 0%, rgba(49,26,64,1) 100%);
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+      }
+
       .background-video {
         position: fixed;
         top: 0;
